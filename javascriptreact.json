@@ -13,7 +13,7 @@
 	// 	"description": "Log output to console"
 	// }
 	"Import from this directory": {
-		"prefix": "import::here",
+		"prefix": "im:here",
 		"body": ["import {${0}} from \"./${1}\";"],
 		"description": "Import modules from this directory"
 	},
@@ -36,16 +36,16 @@
 		"body": ["import styled from \"styled-components\";", ""]
 	},
 	"Imp styled comp w/css": {
-		"prefix": "imsc::css",
+		"prefix": "imsc:css",
 		"body": ["import styled, { css } from \"styled-components\";", ""],
 		"description": "Creates styled component with css module import"
 	},
-	"Imp styled comp w/utils, verbose": {
-		"prefix": "imscvb::utils",
+	"Imp styled comp w/utils": {
+		"prefix": "imsc:utils",
 		"body": [
 			"import styled from \"styled-components\";",
 			"",
-			"import { FlexCenter } from \"../../style-utils/utils.styles\";",
+			"import { } from \"../../styles/utils.styles.js\";",
 			"",
 			"export const ${1:MyComponent} = styled.${2:div}`",
 			"\t${0}",
@@ -53,33 +53,26 @@
 		],
 		"description": "Creates styled component with refs to utils"
 	},
-	"Imp styled comp w/utils": {
-		"prefix": "imsc::utils",
+	"Import utils": {
+		"prefix": "im:utils",
 		"body": [
-			"import { FlexCenter } from \"../../style-utils/utils.styles\";",
+			"import { ${0} } from \"../../styles/css/utils.styles.js\";",
 			""
 		],
-		"description": "Creates styled component with refs to utils"
+		"description": "Creates ref to utils"
 	},
 	"Import media queries from utils": {
-		"prefix": "im::mq",
-		"body": ["import { device } from \"../../style-utils/utils.styles\";"],
+		"prefix": "im:mq",
+		"body": ["import { device } from \"../../styles/css/utils.styles.js\";"],
 		"description": "Import media queries for styled-components from utils"
 	},
 	"Destructure media queries": {
-		"prefix": "ds::mq",
+		"prefix": "ds:mq",
 		"body": ["const { ${0} } = device;"],
 		"description": "Creates destructure block for media queries"
 	},
-	"Destructure media queries verbose": {
-		"prefix": "ds::mqvb",
-		"body": [
-			"const { mobileS, mobileM, tabletS, tabletLand, laptopS, laptopM, laptopL, desktop, desktopL } = device;"
-		],
-		"description": "Creates destructure block for media queries with all options"
-	},
 	"Imp styled comp boilerplate": {
-		"prefix": "imsc::bp",
+		"prefix": "imsc:bp",
 		"body": [
 			"import styled from \"styled-components\";",
 			"",
@@ -90,15 +83,24 @@
 		"description": "Creates styled component with basic boilerplate, no utils"
 	},
 	"Export styled component": {
-		"prefix": "exsc",
+		"prefix": "ex:sc",
 		"body": ["export const ${1:Component} = styled.${2:div}`", "\t${0}", "`;"]
 	},
 	"Export css styles": {
-		"prefix": "excss",
+		"prefix": "ex:css",
 		"body": ["export const ${1:MyStyles} = css`", "\t${0}", "`;"]
 	},
 	"Styled-components function": {
-		"prefix": "scfn",
+		"prefix": "sc:fn",
 		"body": ["({${0}}) => "]
-	}
+	},
+	"Styled-components CSS function": {
+		"prefix": "sc:fn:css",
+		"body": ["({theme: {css}}) => css.${0}"]
+	},
+	"Styled-components theme function": {
+		"prefix": "sc:fn:theme",
+		"body": ["({theme: { ${1} }}) => ${1}.${0}"]
+	},
+
 }
